@@ -7,7 +7,11 @@
     {% md_icon icon size='10rem'%}
   </span>
   <p class="fs-1 text-success text-capitalize">
-    {{ message }}.
+      {% if status == 'success' %}
+      Thank you for reaching out {{ username }}, will get back to you soonest.
+      {% else %}
+      oops something went working.
+      {% endif %}
   </p>
 </div>
 {% endblock %}

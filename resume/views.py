@@ -59,8 +59,9 @@ def handle_form(request):
             if contact:
                 context.update(
                     {
-                        "message": "Thank you for reaching out will get back to you soonest",
-                        'icon': 'emoticon-outline'
+                        'icon': 'emoticon-outline',
+                        'username': contact.name,
+                        'status': 'success'
                     }
                 )
                 return render(
@@ -71,8 +72,8 @@ def handle_form(request):
 
         context.update(
             {
-                "message": "oops something went wrong",
-                'icon': 'emoticon-sad-outline'
+                'icon': 'emoticon-sad-outline',
+                'status': 'error',
             }
         )
 
