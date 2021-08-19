@@ -1,0 +1,13 @@
+{% extends "resume/base.html" %} 
+{% load bootstrap_icons %} 
+
+{%block content %}
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <span class="d-flex align-items-center pe-3 text-success">
+    {% md_icon icon size='10rem'%}
+  </span>
+  <p class="fs-1 text-success text-capitalize">
+    {{ message }}.
+  </p>
+</div>
+{% endblock %}

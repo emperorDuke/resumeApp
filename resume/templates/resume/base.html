@@ -1,0 +1,109 @@
+{% load static %} {% load bootstrap_icons %}
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'resume/css/bootstrap.min.css' %}"
+      type="text/css"
+    />
+    <script
+      src="{% static 'resume/js/bootstrap.bundle.min.js' %}"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <div
+            class="d-flex flex-column h-100 bg-dark bg-gradient py-4 text-light px-3"
+          >
+            <div class="row gy-4">
+              <div class="col-12 d-flex justify-content-center">
+                <img
+                  src="{% static 'resume/duke.jpg' %}"
+                  alt="me"
+                  class="w-50 h-20 rounded-pill"
+                />
+              </div>
+
+              <div class="col-12">
+                <p class="text-capitalize fs-4">contact</p>
+                <div class="border border-light w-100 my-2"></div>
+
+                <div class="row gy-3">
+                  {% for contact in contacts %}
+                  <div class="col-12 d-flex">
+                    <div class="pe-3">
+                      {% md_icon contact.icon %}
+                    </div>
+                    {{ contact.value }}
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <div class="col-12">
+                <p class="text-capitalize fs-4">Hobbies</p>
+                <div class="border border-light w-100 my-2"></div>
+
+                <div class="row g-3" id="hobbies-group">
+                  {% for hobby in hobbies %}
+                  <div class="col-6">
+                    <div
+                      class="d-flex flex-column align-items-center border border-light rounded w-100"
+                    >
+                      <div class="pb-1">
+                        {% md_icon hobby.icon %}
+                      </div>
+                      <span class="text-capitalize">{{ hobby.name}}</span>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="border border-light w-100 my-2"></div>
+
+                <div class="row gy-3">
+                  <div class="col-12 d-flex justify-content-center">
+                    <img
+                      src="{% static 'resume/zuri.png' %}"
+                      alt="zuri"
+                      class="w-50 h-100"
+                    />
+                  </div>
+                  <div class="col-12 d-flex justify-content-center">
+                    <img
+                      src="{% static 'resume/HNG.jpg' %}"
+                      alt="zuri"
+                      class="w-50 h-100"
+                    />
+                  </div>
+
+                  <div class="col-12 d-flex justify-content-center">
+                    <img
+                      src="{% static 'resume/HNG2.jpg' %}"
+                      alt="zuri"
+                      class="w-50 h-100"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col py-5" id="content">
+          {% block content %} {% endblock %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

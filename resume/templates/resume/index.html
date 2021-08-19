@@ -1,0 +1,146 @@
+{% extends "resume/base.html" %} {% load static %} {% load bootstrap_icons %}
+{%block content %}
+<div class="row gy-4">
+  <div class="col-12">
+    <div class="row">
+      <div class="col-12 d-flex flex-row-reverse">
+        <span class="fs-1 fw-bolder">Effiom Duke</span>
+      </div>
+      <div class="col-12 d-flex flex-row-reverse">
+        <span class="fs-4 fw-bold">Software Engineer</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <span class="fs-4 fw-bold">
+      <div class="col-12 d-flex">
+        <div class="pe-3">
+          {% md_icon 'account-circle-outline' size='2rem' %}
+        </div>
+        Profile
+      </div>
+    </span>
+    <div class="border border-dark w-100 my-2"></div>
+    <p class="fw-6">
+      {{ profile }}
+    </p>
+    <!-- ----- -->
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-primary rounded-pill shadow-lg"
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"
+    >
+      <span class="d-flex align-items-center">
+        <span class="d-flex align-items-center pe-3">
+          {% md_icon 'account-tie' %}
+        </span>
+        HIRE ME
+      </span>
+    </button>
+
+    <!-- Modal -->
+    {% include 'resume/dialog.html' with id='staticBackdrop' %}
+    <!-- ----- -->
+  </div>
+  <div class="col-12">
+    <span class="fs-4 fw-bold">
+      <div class="col-12 d-flex">
+        <div class="pe-3">
+          {% md_icon 'face-agent' size='2rem' %}
+        </div>
+        Services
+      </div>
+    </span>
+    <div class="border border-dark w-100 my-2"></div>
+    <div class="row mt-2">
+      <div class="col-6">
+        <div class="w-100 p-2 border border-info rounded border-2">
+          <span class="text-dark fs-6 text-capitalize fw-bold">
+            Web development
+          </span>
+          <p class="col-12">
+            I develop world class website for any client with HTML, CSS and
+            JavaScript using any server side technology.
+          </p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="w-100 p-2 border border-warning rounded border-2">
+          <span class="text-dark fs-6 text-capitalize fw-bold">
+            SEO optimization
+          </span>
+          <p class="col-12">
+            I carry search engine optimizations for any clients that requires a
+            high ranking with search engines like google, bing etc.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mt-3">
+      <span class="fs-4 fw-bold">
+        <div class="col-12 d-flex">
+          <div class="pe-3">
+            {% md_icon 'book-outline' size='2rem' %}
+          </div>
+          Education
+        </div>
+      </span>
+      <div class="border border-dark w-100 my-2"></div>
+      <div class="row mt-2">
+        <div class="col-6">
+          <div class="p-3 shadow-lg rounded border border-2 border-dark">
+            <span class="d-block">2016-2021</span>
+            <p class="fw-bold">
+              Master degree - Ahmadu Bello University, Zaria
+            </p>
+            <span>Industrial Microbiology</span>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="p-3 shadow-lg rounded border border-2 border-dark">
+            <span class="d-block">2011-2015</span>
+            <p class="fw-bold">
+              Bsc degree - University of Ilorin, Ilorin
+            </p>
+            <span>Microbiology</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 mt-3">
+      <span class="fs-4 fw-bold">
+        <div class="col-12 d-flex">
+          <div class="pe-3">
+            {% md_icon 'head-cog-outline' size='2rem' %}
+          </div>
+          Skills
+        </div>
+      </span>
+      <div class="border border-dark w-100 my-2"></div>
+      <div class="row gy-4">
+        {% for skill in skills %}
+        <div class="col-6">
+          <span class="fs-5">{{ skill.name }}</span>
+          <div class="progress">
+            <div
+              class="progress-bar w-{{skill.progress}}"
+              role="progressbar"
+              style="width:{{skill.progress}}%"
+              aria-valuenow="{{skill.progress}}"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              {{ skill.progress }}%
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
