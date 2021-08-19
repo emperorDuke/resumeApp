@@ -8,8 +8,6 @@ colorama==0.4.4
 dj-database-url==0.5.0
 Django==3.2.6
 django-bootstrap-icons==0.6.4
-django-heroku==0.3.1
-gunicorn==20.1.0
 idna==3.2
 mypy-extensions==0.4.3
 pathspec==0.9.0

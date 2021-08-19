@@ -25,6 +25,8 @@ skills = [
     {"name": "Django", "progress": "90"},
     {"name": "Laravel", "progress": "95"},
     {"name": "Javascript", "progress": "99"},
+    {"name": "VueJs", "progress": "99"},
+    {"name": "ReactJs", "progress": "99"}
 ]
 
 
