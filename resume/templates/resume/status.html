@@ -1,17 +1,13 @@
-{% extends "resume/base.html" %} 
-{% load bootstrap_icons %} 
-
-{%block content %}
+{% extends "resume/base.html" %} {% load bootstrap_icons %} {%block content %}
 <div class="d-flex flex-column justify-content-center align-items-center">
   <span class="d-flex align-items-center pe-3 text-success">
     {% md_icon icon size='10rem'%}
   </span>
-  <p class="fs-1 text-success text-capitalize">
-      {% if status == 'success' %}
-      Thank you for reaching out {{ username }}, will get back to you soonest.
-      {% else %}
-      oops something went wrong.
-      {% endif %}
+  <p class="fs-2 text-success text-capitalize">
+    {% if status == 'success' %} Thank you for reaching out
+    <span class="text-uppercase fs-1">{{ username }}</span>
+    , will get back to you soonest. {% else %} oops something went wrong. {%
+    endif %}
   </p>
 </div>
 {% endblock %}
