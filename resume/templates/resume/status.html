@@ -4,10 +4,11 @@
     {% md_icon icon size='10rem'%}
   </span>
   <p class="fs-2 text-success text-capitalize">
-    {% if status == 'success' %} Thank you for reaching out
+    {% if status == 'success' %} 
+    Thank you for reaching out
     <span class="text-uppercase fs-1">{{ username }}</span>
-    , will get back to you soonest. {% else %} oops something went wrong. {%
-    endif %}
+    , will get back to you soonest. {% else %} oops something went wrong. 
+    {% endif %}
   </p>
 </div>
 {% endblock %}
