@@ -3,7 +3,7 @@
   <span class="d-flex align-items-center pe-3 text-success">
     {% md_icon icon size='10rem'%}
   </span>
-  <p class="fs-2 text-success text-capitalize">
+  <p class="fs-2 text-{{status}} text-capitalize">
     {% if status == 'success' %} 
     Thank you for reaching out
     <span class="text-uppercase fs-1">{{ username }}</span>

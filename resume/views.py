@@ -73,7 +73,7 @@ def handle_form(request):
         context.update(
             {
                 'icon': 'emoticon-sad-outline',
-                'status': 'error',
+                'status': 'danger',
             }
         )
 
