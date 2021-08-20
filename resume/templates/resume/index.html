@@ -1,4 +1,7 @@
-{% extends "resume/base.html" %} {% load static %} {% load bootstrap_icons %}
+{% extends "resume/base.html" %} 
+{% load static %} 
+{% load bootstrap_icons %}
+
 {% block content %}
 <div class="row gy-4">
   <div class="col-12">
@@ -26,11 +29,12 @@
     </p>
     <!-- ----- -->
     <!-- Button trigger modal -->
+    {% with id='staticBackdrop' %}
     <button
       type="button"
       class="btn btn-primary rounded-pill shadow-lg"
       data-bs-toggle="modal"
-      data-bs-target="#staticBackdrop"
+      data-bs-target="#{{id}}"
     >
       <span class="d-flex align-items-center">
         <span class="d-flex align-items-center pe-3">
@@ -41,8 +45,9 @@
     </button>
 
     <!-- Modal -->
-    {% include 'resume/dialog.html' with id='staticBackdrop' %}
+    {% include 'resume/dialog.html' with id=id %}
     <!-- ----- -->
+    {% endwith %}
   </div>
   <div class="col-12">
     <span class="fs-4 fw-bold">
@@ -82,7 +87,7 @@
       <div class="row g-3 mt-2">
         {% for education in educations %}
         <div class="col-12 col-md-6">
-          <div class="p-3 shadow-lg rounded border border-2 border-warning">
+          <div class="p-3 shadow-lg rounded border border-2 border-warning h-100">
             <span class="d-block">{{education.year}}</span>
             <p class="fw-bold">
               {{ education.degree }}
