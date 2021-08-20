@@ -18,92 +18,73 @@
     ></script>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-3">
-          <div
-            class="d-flex flex-column h-100 bg-dark bg-gradient py-4 text-light px-3"
-          >
-            <div class="row gy-4">
-              <div class="col-12 d-flex justify-content-center">
-                <img
-                  src="{% static 'resume/duke.jpg' %}"
-                  alt="me"
-                  class="w-50 h-20 rounded-pill"
-                />
-              </div>
-
-              <div class="col-12">
-                <p class="text-capitalize fs-4">contact</p>
-                <div class="border border-light w-100 my-2"></div>
-
-                <div class="row gy-3">
-                  {% for contact in contacts %}
-                  <div class="col-12 d-flex">
-                    <div class="pe-3">
-                      {% md_icon contact.icon %}
-                    </div>
-                    {{ contact.value }}
-                  </div>
-                  {% endfor %}
-                </div>
-              </div>
-
-              <div class="col-12">
-                <p class="text-capitalize fs-4">Hobbies</p>
-                <div class="border border-light w-100 my-2"></div>
-
-                <div class="row g-3" id="hobbies-group">
-                  {% for hobby in hobbies %}
-                  <div class="col-6">
-                    <div
-                      class="d-flex flex-column align-items-center border border-light rounded w-100"
-                    >
-                      <div class="pb-1">
-                        {% md_icon hobby.icon %}
-                      </div>
-                      <span class="text-capitalize">{{ hobby.name}}</span>
-                    </div>
-                  </div>
-                  {% endfor %}
-                </div>
-              </div>
-
-              <div class="col-12">
-                <div class="border border-light w-100 my-2"></div>
-
-                <div class="row gy-3">
-                  <div class="col-12 d-flex justify-content-center">
-                    <img
-                      src="{% static 'resume/zuri.png' %}"
-                      alt="zuri"
-                      class="w-50 h-100"
-                    />
-                  </div>
-                  <div class="col-12 d-flex justify-content-center">
-                    <img
-                      src="{% static 'resume/HNG.jpg' %}"
-                      alt="zuri"
-                      class="w-50 h-100"
-                    />
-                  </div>
-
-                  <div class="col-12 d-flex justify-content-center">
-                    <img
-                      src="{% static 'resume/HNG2.jpg' %}"
-                      alt="zuri"
-                      class="w-50 h-100"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+    <div class="container-fluid">
+      <header
+        class="bg-secondary bg-gradient shadow-lg p-3"
+        style="height: 70px; position: sticky; top: 0;"
+      >
+        <div class="row">
+          <div class="col-md-5 col-4">
+            <button
+              class="btn btn-outline-light d-sm-block d-md-none"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"
+              aria-controls="offcanvasExample"
+            >
+              {% md_icon 'menu' size='1.6rem' %}
+            </button>
+            {% include 'resume/navbar.html' %}
+          </div>
+          <div class="col">
+            <img
+              src="{% static 'resume/zuri.png' %}"
+              alt="zuri"
+              style="height: 5vh;"
+            />
           </div>
         </div>
-        <div class="col py-5" id="content">
-          {% block content %} {% endblock %}
+      </header>
+      <main class="py-2">
+        <div class="row">
+          <div class="col-3 d-none d-md-block">
+            {% include 'resume/navitem.html' %}
+          </div>
+          <div class="col" id="content">
+            {% block content %} {% endblock %}
+          </div>
         </div>
-      </div>
+      </main>
+      <footer
+        class="bg-secondary bg-gradient bg-opacity-50"
+        style="height: 150px;"
+      >
+        <div
+          class="d-flex flex-column align-items-center justify-content-center h-100 w-100"
+        >
+          <div class="d-flex">
+            <button
+              type="button"
+              class="btn btn-light me-2 rounded-circle shadow-lg"
+            >
+              <a href="#" class="text-decoration-none text-secondary">
+                {% md_icon 'facebook' size="1.6rem" %}
+              </a>
+            </button>
+            <button class="btn btn-light me-2 rounded-circle shadow-lg">
+              <a href="#" class="text-decoration-none text-secondary">
+                {% md_icon 'instagram' size="1.6rem" %}
+              </a>
+            </button>
+            <button class="btn btn-light me-2 rounded-circle shadow-lg">
+              <a href="#" class="text-decoration-none text-secondary">
+                {% md_icon 'twitter' size="1.6rem" %}
+              </a>
+            </button>
+          </div>
+          <p class="text-secondary mt-3 fw-bold">@Copyright EmperorDuke</p>
+        </div>
+      </footer>
     </div>
   </body>
 </html>

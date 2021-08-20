@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,13 +81,16 @@ WSGI_APPLICATION = 'resumeApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dfevveaoeas40u',
-        'USER': 'vjtrfxhokotbaw',
-        'PASSWORD': 'b2727c2ad10e64b2d1928008762b7b71d5e97990a0179430d68c741c3c0b4e20',
-        'HOST': 'ec2-52-203-74-38.compute-1.amazonaws.com',
+        'NAME': 'resumeDB',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': '127.0.0.1',
         'PORT': '5432'
     }
 }
+
+DATABASES['default'] = dj_database_url.parse(
+    'postgres://vjtrfxhokotbaw:b2727c2ad10e64b2d1928008762b7b71d5e97990a0179430d68c741c3c0b4e20@ec2-52-203-74-38.compute-1.amazonaws.com:5432/dfevveaoeas40u')
 
 
 # Password validation

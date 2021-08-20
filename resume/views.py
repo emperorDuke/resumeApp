@@ -1,4 +1,3 @@
-from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 
 from .forms import ContactForm
@@ -29,6 +28,30 @@ skills = [
     {"name": "ReactJs", "progress": "99"}
 ]
 
+services = [
+    {
+        'title': 'Web Development',
+        'body': 'I develop world class website for any client with HTML, CSS and JavaScript using any server side technology.'
+    },
+    {
+        'title': 'SEO optimization ',
+        'body': 'I carry search engine optimizations for any clients that requires a high ranking with search engines like google, bing etc.'
+    },
+]
+
+educations = [
+    {
+        'year': '2016-2021',
+        'degree': 'Master degree - Ahmadu Bello University, Zaria',
+        'course': 'Industrial Microbiology',
+    },
+    {
+        'year': '2011-2015',
+        'degree': 'Bsc degree - University of Ilorin, Ilorin',
+        'course': 'Microbiology',
+    }
+]
+
 
 def hompage(request):
     form = ContactForm()
@@ -41,6 +64,8 @@ def hompage(request):
             "hobbies": hobbies,
             "contacts": contacts,
             "skills": skills,
+            'services': services,
+            'educations': educations,
             "profile": "To obtain a position that will enable me use my strong organizational skills, award-winning educational background, and ability to work well with people.",
         },
     )

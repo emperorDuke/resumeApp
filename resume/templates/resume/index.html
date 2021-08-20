@@ -1,12 +1,12 @@
 {% extends "resume/base.html" %} {% load static %} {% load bootstrap_icons %}
-{%block content %}
+{% block content %}
 <div class="row gy-4">
   <div class="col-12">
     <div class="row">
-      <div class="col-12 d-flex flex-row-reverse">
+      <div class="col-12 d-flex flex-md-row-reverse">
         <span class="fs-1 fw-bolder">Effiom Duke</span>
       </div>
-      <div class="col-12 d-flex flex-row-reverse">
+      <div class="col-12 d-flex flex-md-row-reverse">
         <span class="fs-4 fw-bold">Software Engineer</span>
       </div>
     </div>
@@ -46,77 +46,59 @@
   </div>
   <div class="col-12">
     <span class="fs-4 fw-bold">
-      <div class="col-12 d-flex">
-        <div class="pe-3">
+      <div class="col-12">
+        <span class="pe-2">
           {% md_icon 'face-agent' size='2rem' %}
-        </div>
+        </span>
         Services
       </div>
     </span>
     <div class="border border-dark w-100 my-2"></div>
-    <div class="row mt-2">
-      <div class="col-6">
-        <div class="w-100 p-2 border border-info rounded border-2">
+    <div class="row g-3 mt-2">
+      {% for service in services %}
+      <div class="col-12 col-md-6">
+        <div class="w-100 p-2 border border-info rounded border-2 h-100 shadow-lg">
           <span class="text-dark fs-6 text-capitalize fw-bold">
-            Web development
+            {{ service.title }}
           </span>
           <p class="col-12">
-            I develop world class website for any client with HTML, CSS and
-            JavaScript using any server side technology.
+            {{ service.body }}
           </p>
         </div>
       </div>
-      <div class="col-6">
-        <div class="w-100 p-2 border border-warning rounded border-2">
-          <span class="text-dark fs-6 text-capitalize fw-bold">
-            SEO optimization
-          </span>
-          <p class="col-12">
-            I carry search engine optimizations for any clients that requires a
-            high ranking with search engines like google, bing etc.
-          </p>
-        </div>
-      </div>
+      {% endfor %}
     </div>
 
     <div class="col-12 mt-3">
       <span class="fs-4 fw-bold">
-        <div class="col-12 d-flex">
-          <div class="pe-3">
+        <div class="col-12">
+          <span class="pe-2">
             {% md_icon 'book-outline' size='2rem' %}
-          </div>
+          </span>
           Education
         </div>
       </span>
       <div class="border border-dark w-100 my-2"></div>
-      <div class="row mt-2">
-        <div class="col-6">
-          <div class="p-3 shadow-lg rounded border border-2 border-dark">
-            <span class="d-block">2016-2021</span>
+      <div class="row g-3 mt-2">
+        {% for education in educations %}
+        <div class="col-12 col-md-6">
+          <div class="p-3 shadow-lg rounded border border-2 border-warning">
+            <span class="d-block">{{education.year}}</span>
             <p class="fw-bold">
-              Master degree - Ahmadu Bello University, Zaria
+              {{ education.degree }}
             </p>
-            <span>Industrial Microbiology</span>
+            <span>{{education.course}}</span>
           </div>
         </div>
-
-        <div class="col-6">
-          <div class="p-3 shadow-lg rounded border border-2 border-dark">
-            <span class="d-block">2011-2015</span>
-            <p class="fw-bold">
-              Bsc degree - University of Ilorin, Ilorin
-            </p>
-            <span>Microbiology</span>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
     <div class="col-12 mt-3">
       <span class="fs-4 fw-bold">
-        <div class="col-12 d-flex">
-          <div class="pe-3">
+        <div class="col-12">
+          <span class="pe-2">
             {% md_icon 'head-cog-outline' size='2rem' %}
-          </div>
+          </span>
           Skills
         </div>
       </span>
@@ -127,7 +109,7 @@
           <span class="fs-5">{{ skill.name }}</span>
           <div class="progress">
             <div
-              class="progress-bar w-{{skill.progress}}"
+              class="progress-bar"
               role="progressbar"
               style="width:{{skill.progress}}%"
               aria-valuenow="{{skill.progress}}"
